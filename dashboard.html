@@ -1666,15 +1666,8 @@ body.dark .team-info h3{
    HERO GLOW EFFECT
 ========================================= */
 
-.hero::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:
-        radial-gradient(circle at 20% 30%, rgba(139,177,116,0.4), transparent 50%),
-        radial-gradient(circle at 80% 70%, rgba(139,177,116,0.3), transparent 50%);
-    animation:heroGradient 12s ease-in-out infinite alternate;
-    z-index:0;
+.dashboard-hero::before{
+    display:none;
 }
 
 @keyframes heroGradient{
@@ -2229,6 +2222,129 @@ body.dark .chart-card{
     display:block;
 }
 
+/* ===============================
+   DASHBOARD HERO (PRO)
+=================================*/
+
+.dashboard-hero{
+    position:relative;
+    min-height:75vh;
+
+    background:
+        linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.45)),
+        url("img/background.webp") center/cover no-repeat;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:140px 6% 100px;
+    overflow:hidden;
+}
+
+.dashboard-hero-content{
+    position:relative;
+    z-index:2;
+    color:#ffffff;
+    max-width:800px;
+}
+
+.dashboard-hero h1{
+    font-size:56px;
+    margin-bottom:20px;
+}
+
+.dashboard-hero p{
+    font-size:18px;
+    margin-bottom:35px;
+    opacity:0.9;
+}
+
+.dashboard-hero-buttons{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.btn-outline{
+    padding:15px 30px;
+    border:2px solid #ffffff;
+    background:transparent;
+    color:#ffffff;
+    border-radius:6px;
+    font-weight:500;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.btn-outline:hover{
+    background:#ffffff;
+    color:#111;
+}
+
+.card-action{
+    margin-top:20px;
+    padding:8px 18px;
+    border:none;
+    background:var(--primary);
+    color:#fff;
+    border-radius:4px;
+    font-size:13px;
+    cursor:pointer;
+}
+
+/* ===============================
+   DASHBOARD INTRO (PRO STYLE)
+=================================*/
+
+.dashboard-intro{
+    padding:100px 6% 80px;
+    text-align:center;
+    background:var(--bg);
+}
+
+.dashboard-intro-title{
+    font-size:48px;
+    font-weight:600;
+    margin-bottom:25px;
+    position:relative;
+    display:inline-block;
+}
+
+.dashboard-intro-title::after{
+    content:"";
+    position:absolute;
+    left:50%;
+    bottom:-10px;
+    transform:translateX(-50%);
+    width:80px;
+    height:4px;
+    background:var(--primary);
+    border-radius:3px;
+}
+
+.dashboard-intro-text{
+    max-width:750px;
+    margin:30px auto 0;
+    font-size:18px;
+    line-height:1.8;
+    color:var(--gray);
+    animation:fadeUp 1.2s ease forwards;
+}
+
+/* Subtle fade animation */
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
 </style>
 </head>
 <body>
@@ -2309,12 +2425,34 @@ body.dark .chart-card{
 </div>
 
 <!-- ================= ABOUT HERO ================= -->
-<section class="about-hero">
-    <h1>Dashboard Overview</h1>
-    <p>
+<!-- ================= DASHBOARD HERO ================= -->
+<section class="dashboard-hero">
+
+    <div class="dashboard-hero-content">
+        <h1>Welcome Back, Admin 👋</h1>
+        <p>
+            Track performance, manage projects, analyze growth
+            and control operations from one powerful workspace.
+        </p>
+
+        <div class="dashboard-hero-buttons">
+<a href="404.html" class="btn">Export Report</a>
+<a href="404.html" class="btn-outline">Refresh Data</a>
+        </div>
+    </div>
+
+</section>
+
+<!-- ================= DASHBOARD INTRO ================= -->
+<section class="dashboard-intro">
+
+    <h2 class="dashboard-intro-title">Dashboard Overview</h2>
+
+    <p class="dashboard-intro-text">
         Monitor analytics, manage orders, track users and review
         performance insights in one centralized architectural workspace.
     </p>
+
 </section>
 
 <section class="dashboard-section">

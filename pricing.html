@@ -2971,13 +2971,43 @@ body.dark .client-box:hover{
 }
 
 /* ===============================
-   PRICING HERO
+   PRICING HERO WITH IMAGE
 =================================*/
 
 .pricing-hero{
-    padding:160px 6% 100px;
+    min-height:60vh;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
     text-align:center;
-    background:var(--bg);
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0,0,0,0.55),
+            rgba(0,0,0,0.65)
+        ),
+        url("img/blog6.webp") center/cover no-repeat;
+
+    padding:0;
+}
+
+/* Keep content above overlay */
+.pricing-hero-content{
+    position:relative;
+    z-index:2;
+    color:#ffffff;
+    max-width:800px;
+    padding:0 20px;
+}
+
+/* Force center fix (because global hero has absolute system) */
+.pricing-hero .pricing-hero-content{
+    position:relative !important;
+    transform:none !important;
+    top:auto !important;
+    left:auto !important;
 }
 
 .pricing-hero h1{
@@ -2986,9 +3016,10 @@ body.dark .client-box:hover{
 }
 
 .pricing-hero p{
-    color:var(--gray);
+    color:#ffffff;
+    opacity:0.95;
+    text-shadow:0 3px 15px rgba(0,0,0,0.6);
 }
-
 
 /* ===============================
    PRICING PAGE SECTION
@@ -3112,6 +3143,39 @@ body.dark .pricing-page-card{
     0%{ transform:scale(0.8) rotate(0deg); opacity:0.5; }
     50%{ transform:scale(1.1) rotate(180deg); opacity:1; }
     100%{ transform:scale(0.8) rotate(360deg); opacity:0.5; }
+}
+
+/* ===================================
+   PRICING HERO MOBILE FIX
+===================================*/
+
+@media (max-width:768px){
+
+    .pricing-hero{
+        min-height:70vh;
+        padding-top:130px;   /* space for fixed header */
+        padding-bottom:60px;
+    }
+
+    .pricing-hero-content{
+        max-width:100%;
+        padding:0 20px;
+    }
+
+    .pricing-hero h1{
+        font-size:34px;
+        line-height:1.2;
+    }
+
+    .pricing-hero p{
+        font-size:15px;
+        line-height:1.6;
+    }
+
+}
+
+.pricing-hero .pricing-hero-content{
+    animation:heroFade 1.4s ease forwards !important;
 }
 
 </style>
